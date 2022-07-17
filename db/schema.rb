@@ -19,8 +19,9 @@ ActiveRecord::Schema.define(version: 2022_07_17_023746) do
     t.integer "price"
     t.text "introduction"
     t.boolean "is_active", default: true
-  end  
-  
+
+ActiveRecord::Schema.define(version: 2022_07_17_024404) do
+
   create_table "addresses", force: :cascade do |t|
     t.integer "customer_id"
     t.string "name"
@@ -39,7 +40,6 @@ ActiveRecord::Schema.define(version: 2022_07_17_023746) do
     t.integer "total_payment"
     t.integer "payment_method", default: 0
     t.integer "status", default: 0
-  end  
 
   create_table "cart_items", force: :cascade do |t|
     t.integer "item_id"
