@@ -10,19 +10,8 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+ActiveRecord::Schema.define(version: 2022_07_17_053718) do
 
-
-ActiveRecord::Schema.define(version: 2022_07_17_023746) do
-
-  create_table "items", force: :cascade do |t|
-    t.integer "genre_id"
-    t.string "name"
-    t.integer "price"
-    t.text "introduction"
-    t.boolean "is_active", default: true
-   end  
-   
-   
   create_table "addresses", force: :cascade do |t|
     t.integer "customer_id"
     t.string "name"
@@ -31,7 +20,6 @@ ActiveRecord::Schema.define(version: 2022_07_17_023746) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
-
 
   create_table "admins", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -45,18 +33,7 @@ ActiveRecord::Schema.define(version: 2022_07_17_023746) do
     t.index ["reset_password_token"], name: "index_admins_on_reset_password_token", unique: true
   end
 
-  create_table "orders", force: :cascade do |t|
-    t.integer "customer_id"
-    t.string "postal_code"
-    t.string "address"
-    t.string "name"
-    t.integer "shipping_cost"
-    t.integer "total_payment"
-    t.integer "payment_method", default: 0
-    t.integer "status", default: 0
-  
-
-
+ develop
   create_table "cart_items", force: :cascade do |t|
     t.integer "item_id"
     t.integer "customer_id"
