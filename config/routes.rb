@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
 
+    root to: 'publics/homes#top'  
+    get 'publics/homes/about' => 'publics/homes#about', as: 'about'
+
   namespace :publics do
     resources :addresses, only:[:index,:edit,:create,:update,:destroy]
     
@@ -15,13 +18,12 @@ Rails.application.routes.draw do
     patch 'customers/withdrawal'
     
     resources :items, only:[:index,:show] 
-    
-    root to: 'homes#top' 
-    get '/about' => 'homes#about', as: 'about'
+  
   end
   
   
   namespace :admins do
+    root to: 'homes#top'
     resources :makings, only:[:update] 
 
     resources :orders, only:[:edit,:update] 
@@ -31,8 +33,6 @@ Rails.application.routes.draw do
     resources :genres, only:[:index,:create,:edit,:update]
 
     resources :items, only:[:index,:new,:create,:show,:edit,:update]
-
-    root to: 'homes#top' 
   end
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
