@@ -1,2 +1,29 @@
-<h1>Admins::Items#edit</h1>
-<p>Find me in app/views/admins/items/edit.html.erb</p>
+<div class="row">
+    <div class="col-md-6 offset-md-1">
+        <h2 class="text-left">商品編集</h2>
+        <p id="notice"></p>
+        <%= form_with model: @item, url: admins_item_path, method: :patch do |item| %>
+        
+        <form>
+            <label for="inputImage">商品画像</label>
+            <%= item.file_field :image, placeholder: "選択されていません", accept: "image/*" %> <!--入力フォームに文字を入れる→placeholder: ""-->
+            <div class="form-group">
+            <%= item.label :商品名 %>
+            <%= item.text_field :name, class: "form-control name", placeholder: "商品名" %>
+            
+            <%= item.label :商品説明 %>
+            <%= item.text_area :introduction, class: "form-control introduction", placeholder: "ここに説明文を記述します" %>
+            
+            <%= item.label :ジャンル %>
+            
+            <%= item.label :税抜価格%>
+            <%= item.text_field :price, class: "form-control price", placeholder: "1000" %>円
+            
+            </div>
+            
+            <!--ジャンルの選択機能コードも追加する-->
+            <%= link_to "変更を保存", admins_item_path(@item.id) %>
+        </form>
+        <% end %>
+    </div>
+</div>

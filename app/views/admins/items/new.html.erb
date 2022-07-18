@@ -6,23 +6,25 @@
                   <%= form_with model: @item, url: admins_items_path, method: :post do |item| %>
                     <form>
                         <label for="inputImage">商品画像</label>
-                          <%= item.file_field :image, placeholder: "選択されていません", accept: "image/*" %>
+                          <%= item.file_field :image, placeholder: "選択されていません", accept: "image/*" %> <!--入力フォームに文字を入れる→placeholder: ""-->
                           <div class="form-group">
-                            <p id="notice"></p>
+                          
                               <%= item.label :商品名 %>
                               <%= item.text_field :name, class: "form-control name", placeholder: "商品名" %>
-                            <p id="notice"></p>
+                          
                               <%= item.label :商品説明 %>
                               <%= item.text_area :introduction, class: "form-control introduction", placeholder: "ここに説明文を記述します" %>
-                            <p id="notice"></p>
+
                               <%= item.label :ジャンル %>
-                            <p id="notice"></p>
+                    
                               <%= item.label :税抜価格%>
                               <%= item.text_field :price, class: "form-control price", placeholder: "1000" %>円
-                            <p id="notice"></p>
+                         
                               <%= item.label :販売ステータス %>
                           </div>
-                            <P id="notice"></P>
+                            
+                            <!--ジャンルの選択機能コードも追加する-->
+                            
                             <%= item.submit "新規登録", class: "btn btn-success" %>
                     </form>
                   <% end %>
