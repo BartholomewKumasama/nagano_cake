@@ -2,7 +2,7 @@
     <div class="col-md-6 offset-md-1">
         <h2 class="text-left">商品編集</h2>
         <p id="notice"></p>
-        <%= form_with model: @item, url: admins_item_path, method: :patch do |item| %>
+        <%= form_with model: @items, url: admins_item_path, method: :patch do |item| %>
         
         <form>
             <label for="inputImage">商品画像</label>
@@ -22,7 +22,7 @@
             </div>
             
             <!--ジャンルの選択機能コードも追加する-->
-            <%= link_to "変更を保存", admins_item_path(@item.id) %>
+            <%= link_to "変更を保存", admins_item_path(item.id) %>
         </form>
         <% end %>
     </div>
