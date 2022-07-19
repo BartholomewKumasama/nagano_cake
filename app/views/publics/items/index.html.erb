@@ -1,7 +1,25 @@
 <div class="container">
-  <div class="row=40 clearfix">
-      <div class="col-md-9 col-md-push-3 col-xs-12">
-          
-      </div>
-  </div>
+    <div class="row">
+        <div class="col-md-3">
+          ジャンル
+        </div>
+           <div class="col-md-9">
+              <div class="items">商品一覧</div>
+              <div class="col-md-3 col-xs-6 under-10">
+                  <div class="d-flex flex-wrap justify-content-start">
+                  <table class="table table-inverse">
+                      <tbody>
+                          <% @items.each do |item| %>
+                          <tr>
+                              <td><%= image_tag item_image, size: '150x100' %></td>
+                              <td><%= item.name %></td>
+                              <td><%= item.price %></td>
+                          </tr>
+                          <% end %>
+                      </tbody>
+                  </table>
+                  </div>
+              </div>
+        </div>
+    </div>
 </div>
