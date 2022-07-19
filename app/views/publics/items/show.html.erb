@@ -1,2 +1,25 @@
-<h1>Publics::Items#show</h1>
-<p>Find me in app/views/publics/items/show.html.erb</p>
+<div class='container'>
+  <div class='row'>
+    <div class='col-md-3'>
+      ジャンル
+      </div>
+      <div class='col-md-4 offset-md-1'>
+        <%= image_tag @item_image, size: '250x200' %>
+      </div>
+      <div class="col-md-5">
+        <table class="table table-inverse">
+          <tbody>
+            <tr><%= @item.name %></tr>
+            <tr><%= @item.introduction %></tr>
+            <tr><%= @item.price %></tr>
+            <tr>
+              <%= form_with model: @cart_item do |f| %>
+              <td><%=　f.select :amount, *[1..10], inclede_blank: "個数選択" %></td>
+              <td><%= f.submit "カートに入れる" class: 'btn btn-success' %></td>
+              <% end %>
+              
+              
+            </tr>
+          </tbody>
+        </table>
+      </div>
