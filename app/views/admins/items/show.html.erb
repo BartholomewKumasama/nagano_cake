@@ -20,10 +20,9 @@
           税込価格<br>
           （税抜価格）
         </th>
+        <td><%= @item.with_tax_price.to_s(:delimited) %>円<br>
+          （<%= number_with_delimiter(@item.price) %>円）</td>
       </tr>
-      
-      <!--記述が足りない-->
-      
       <tr>
         <th>販売ステータス</th>
         <!--<td>%= @item.is_active %></td>-->
