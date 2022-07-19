@@ -17,9 +17,15 @@ Rails.application.routes.draw do
     resources :cart_items, only:[:show,:edit,:update]
     get 'customers/unsubscribe'
     patch 'customers/withdrawal'
+<<<<<<< HEAD
 
     resources :items, only:[:index,:show]
 
+=======
+    
+    resources :items, only:[:index,:show] 
+  
+>>>>>>> origin/develop
   end
 
 
