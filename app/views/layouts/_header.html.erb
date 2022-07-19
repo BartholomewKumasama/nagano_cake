@@ -1,6 +1,7 @@
+<header>
+
 <%=link_to 'LOGO', root_path %>
 <%# if admin_signed_in? %>
- <% if admin_signed_in? %>
     <% if request.fullpath.include? "/admin" %>
     <li>
       <%= link_to "商品一覧", admin_items_path, class: 'nav-link text-light btn btn-outline-light' %>
@@ -22,7 +23,7 @@
       <%= link_to "About", about_path, class: 'nav-link text-light btn btn-outline-light' %>
     </li>
     <li>
-      <%= link_to "商品一覧", items_path, class: 'nav-link text-light btn btn-outline-light ml-4' %>
+      <%#= link_to "商品一覧", items_path, class: 'nav-link text-light btn btn-outline-light ml-4' %>
     </li>
     <li>
       <%#= link_to "新規登録", new_customer_registration_path, class: 'nav-link text-light btn btn-outline-light ml-4' %>
@@ -31,41 +32,40 @@
       <%#= link_to "ログイン", new_customer_session_path, class: 'nav-link text-light btn btn-outline-light ml-4' %>
     </li>
     <% end %>
-<% elsif customer_signed_in? %>
+  <% #elsif customer_signed_in? %>
+
+  <%#ログイン後%>
+  <div>ようこそ、<%#= current_user.first_name %>さん！</div>
+  <li>
+    <%#=link_to 'マイページ',publics_customer_path %>
+  </li>
+  <li>
+    <%=link_to '商品一覧',publics_items_path %>
+  </li>
+  <li>
+    <%=link_to 'カート',publics_items_path %>
+  </li>
+  <li>
+    <%#=link_to 'ログアウト', destroy_customer_session_path, method: :delete, class: 'nav-link text-light btn btn-outline-light ml-4' %>
+  </li>
 
 
-<%# if customer_signed_in? %>
-<%#ログイン後%>
-<div>ようこそ、<%= current_user.first_name %>さん！</div>
-<li>
-  <%#=link_to 'マイページ',publics_customer_path %>
-</li>
-<li>
-  <%=link_to '商品一覧',publics_items_path %>
-</li>
-<li>
-  <%=link_to 'カート',publics_items_path %>
-</li>
-<li>
-  <%#=link_to 'ログアウト', destroy_customer_session_path, method: :delete, class: 'nav-link text-light btn btn-outline-light ml-4' %>
-</li>
+  <%#登録前%>
+  <%# else %>
+  <li>
+    <%=link_to 'About',about_path %>
+  </li>
+  <li>
+    <%#=link_to '商品一覧',publics_items_path %>
+  </li>
+  <li>
+    <%=link_to '新規登録',publics_items_path %>
+  </li><%# routeで定義されていない？%>
+  <li>
+    <%=link_to 'ログイン',publics_items_path %>
+  </li><%# routeで定義されていない？%>
+  <%# end %>
 
-
-<%#登録前%>
-<%# else %>
-<li>
-  <%=link_to 'About',about_path %>
-</li>
-<li>
-  <%=link_to '商品一覧',publics_items_path %>
-</li>
-<li>
-  <%=link_to '新規登録',publics_items_path %>
-</li><%# routeで定義されていない？%>
-<li>
-  <%=link_to 'ログイン',publics_items_path %>
-</li><%# routeで定義されていない？%>
-<%# end %>
-
+</header>
 
 
