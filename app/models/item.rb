@@ -1,4 +1,6 @@
 class Item < ApplicationRecord
+  validates :genre_id, presence: true  #空でないこと
+  
   has_one_attached :image
   
   has_many :cart_items,dependent: :destroy
