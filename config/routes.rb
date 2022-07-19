@@ -7,11 +7,28 @@ Rails.application.routes.draw do
     sessions: 'public/sessions'
   }
   
+<<<<<<< HEAD
   # 管理者用
   # URL /admin/sign_in ...
   devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
     sessions: "admin/sessions"
   }
+=======
+# 顧客用
+# URL /customers/sign_in ...
+devise_for :customers,skip: [:passwords], controllers: {
+  registrations: "public/registrations",
+  sessions: 'public/sessions'
+}
+
+# 管理者用
+# URL /admin/sign_in ...
+devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
+  sessions: "admin/sessions"
+}
+
+
+>>>>>>> parent of 72f65aa (Revert "devse/admin.customer修正")
   root to: 'publics/homes#top'
   get 'publics/homes/about' => 'publics/homes#about', as: 'about'
 
