@@ -1,10 +1,7 @@
 Rails.application.routes.draw do
-<<<<<<< HEAD
-  
+
   root to: 'publics/homes#top'
   get 'publics/homes/about' => 'publics/homes#about', as: 'about'
-=======
->>>>>>> develop
 
 
   namespace :publics do
@@ -22,7 +19,7 @@ Rails.application.routes.draw do
     patch 'customers/withdrawal'
     
     resources :items, only:[:index,:show] 
-
+  
   end
   
   
