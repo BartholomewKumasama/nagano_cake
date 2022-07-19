@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+<<<<<<< HEAD
     # 顧客用
   # URL /customers/sign_in ...
   devise_for :customers,skip: [:passwords], controllers: {
@@ -15,6 +16,8 @@ Rails.application.routes.draw do
   root to: 'publics/homes#top'
   get 'publics/homes/about' => 'publics/homes#about', as: 'about'
 
+=======
+>>>>>>> parent of af3c814 (Merge pull request #26 from BartholomewKumasama/masu)
 
   namespace :publics do
     resources :addresses, only:[:index,:edit,:create,:update,:destroy]
