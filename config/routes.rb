@@ -18,28 +18,36 @@ Rails.application.routes.draw do
 
   namespace :publics do
     resources :addresses, only:[:index,:edit,:create,:update,:destroy]
-    
+
     resources :orders, only:[:new,:index,:show,:create]
     post 'orders/confirm'
     post 'orders/complete'
+<<<<<<< HEAD
     
     resources :cart_items, only:[:index,:create,:update,:destroy] 
     delete 'cart_items/destroy_all' 
     
     resources :cart_items, only:[:show,:edit,:update] 
+=======
+
+    resources :cart_items, only:[:index,:create,:update,:destroy]
+    delete 'cart_items/destroy_all'
+
+    resources :cart_items, only:[:show,:edit,:update]
+>>>>>>> origin/develop
     get 'customers/unsubscribe'
     patch 'customers/withdrawal'
     
     resources :items, only:[:index,:show] 
 
   end
-  
-  
+
+
   namespace :admins do
     root to: 'homes#top'
-    resources :makings, only:[:update] 
+    resources :makings, only:[:update]
 
-    resources :orders, only:[:edit,:update] 
+    resources :orders, only:[:edit,:update]
 
     resources :customers, only:[:index,:show,:edit,:update]
 
