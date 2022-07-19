@@ -12,10 +12,14 @@
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 2022_07_19_064519) do
 =======
 ActiveRecord::Schema.define(version: 2022_07_19_064455) do
 >>>>>>> origin/develop
+=======
+ActiveRecord::Schema.define(version: 2022_07_19_064519) do
+>>>>>>> parent of 72f65aa (Revert "devse/admin.customer修正")
 =======
 ActiveRecord::Schema.define(version: 2022_07_19_064519) do
 >>>>>>> parent of 72f65aa (Revert "devse/admin.customer修正")
