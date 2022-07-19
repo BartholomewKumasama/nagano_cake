@@ -10,19 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-ActiveRecord::Schema.define(version: 2022_07_19_064519) do
-=======
-ActiveRecord::Schema.define(version: 2022_07_19_064455) do
->>>>>>> origin/develop
-=======
-ActiveRecord::Schema.define(version: 2022_07_19_064519) do
->>>>>>> parent of 72f65aa (Revert "devse/admin.customer修正")
-=======
-ActiveRecord::Schema.define(version: 2022_07_19_064519) do
->>>>>>> parent of 72f65aa (Revert "devse/admin.customer修正")
+
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
