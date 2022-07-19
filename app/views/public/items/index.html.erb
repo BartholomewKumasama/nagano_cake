@@ -11,9 +11,11 @@
                       <tbody>
                           <% @items.each do |item| %>
                           <tr>
+                            <%= link_to publics_item_path(item.id) do %>
                               <td><%= image_tag item_image, size: '150x100' %></td>
                               <td><%= item.name %></td>
                               <td><%= item.price %></td>
+                            <% end %>
                           </tr>
                           <% end %>
                       </tbody>
