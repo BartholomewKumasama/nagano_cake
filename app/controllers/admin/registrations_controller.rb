@@ -1,6 +1,14 @@
 # frozen_string_literal: true
 
+<<<<<<< HEAD
+<<<<<<<< HEAD:app/controllers/admin/registrations_controller.rb
 class Admin::RegistrationsController < Devise::RegistrationsController
+========
+class Public::RegistrationsController < Devise::RegistrationsController
+>>>>>>>> origin/develop:app/controllers/public/registrations_controller.rb
+=======
+class Public::RegistrationsController < Devise::RegistrationsController
+>>>>>>> origin/develop
   # before_action :configure_sign_up_params, only: [:create]
   # before_action :configure_account_update_params, only: [:update]
 

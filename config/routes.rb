@@ -14,11 +14,15 @@ Rails.application.routes.draw do
     sessions: "admin/sessions"
   }
   root to: 'public/homes#top'
+<<<<<<< HEAD
   get 'publics/homes/about' => 'publics/homes#about', as: 'about'
+=======
+  get 'public/homes/about' => 'public/homes#about', as: 'about'
+>>>>>>> origin/develop
 
 
 
-  namespace :publics do
+  namespace :public do
     resources :addresses, only:[:index,:edit,:create,:update,:destroy]
 
     resources :orders, only:[:new,:index,:show,:create]
@@ -45,7 +49,7 @@ Rails.application.routes.draw do
   end
 
 
-  namespace :admins do
+  namespace :admin do
     root to: 'homes#top'
     resources :makings, only:[:update]
 
