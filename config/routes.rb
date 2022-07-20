@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-<<<<<<< HEAD
+
 
  
 # 顧客用
@@ -16,9 +16,6 @@ devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
 }
 
 
-=======
-  
->>>>>>> parent of 8ecf9ac (devse/admin.customer修正)
   root to: 'publics/homes#top'
   get 'publics/homes/about' => 'publics/homes#about', as: 'about'
 
