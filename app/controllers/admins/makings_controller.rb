@@ -1,4 +1,4 @@
-class Admins::MakingsController < ApplicationController
+class Admin::MakingsController < ApplicationController
   def update
   end
 end
