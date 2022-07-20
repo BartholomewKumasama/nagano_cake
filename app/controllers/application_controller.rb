@@ -1,5 +1,4 @@
 class ApplicationController < ActionController::Base
-  before_action :configure_permitted_parameters , if: :devise_controller?
 
  def after_sign_in_path_for(resource_or_scope)　#複数のdevice
     if resource.is_a?(Admin)
@@ -8,5 +7,19 @@ class ApplicationController < ActionController::Base
        root_path
     end
  end
+ 
+#ここからpublic＝＝＝＝＝＝＝＝＝＝＝＝
 
+  def after_customers_sign_in_path_for(resource)
+    public_root_path
+  end
+  
+  def after_customers_sign_up_path_for(resource)
+    customers_show_path
+  end
+  
+  def after_customers_sign_out_path_for(resource)
+    about_path
+  end
+  
 end
