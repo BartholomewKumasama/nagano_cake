@@ -1,9 +1,5 @@
 class Public::ItemsController < ApplicationController
-<<<<<<< HEAD:app/controllers/publics/items_controller.rb
-  
-=======
 
->>>>>>> origin/develop:app/controllers/public/items_controller.rb
   def index
     @genre = Genre.all
     @items = Item.all.where(is_active: true)
