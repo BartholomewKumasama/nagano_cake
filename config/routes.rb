@@ -14,11 +14,8 @@ Rails.application.routes.draw do
     sessions: "admin/sessions"
   }
   root to: 'public/homes#top'
-<<<<<<< HEAD
+
   get 'publics/homes/about' => 'publics/homes#about', as: 'about'
-=======
-  get 'public/homes/about' => 'public/homes#about', as: 'about'
->>>>>>> origin/develop
 
 
 
