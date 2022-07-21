@@ -30,18 +30,7 @@ Rails.application.routes.draw do
     resources :cart_items, only:[:index,:create,:update,:destroy]
     delete 'cart_items/destroy_all'
 
-<<<<<<< HEAD
-    resources :cart_items, only:[:show,:edit,:update]
-
-
-    resources :cart_items, only:[:index,:create,:update,:destroy]
-    delete 'cart_items/destroy_all'
-
-    resources :cart_items, only:[:show,:edit,:update]
-
-=======
     resources :customers, only:[:show,:edit,:update]
->>>>>>> origin/develop
     get 'customers/unsubscribe'
     patch 'customers/withdrawal'
 
