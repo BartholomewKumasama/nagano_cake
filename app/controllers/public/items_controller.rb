@@ -1,9 +1,5 @@
 class Public::ItemsController < ApplicationController
-<<<<<<< HEAD
-  
-=======
 
->>>>>>> origin/develop
   def index
     @genre = Genre.all
     @items = Item.all.where(is_active: true)

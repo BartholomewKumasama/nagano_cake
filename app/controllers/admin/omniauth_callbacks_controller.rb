@@ -1,18 +1,6 @@
 # frozen_string_literal: true
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<<< HEAD:app/controllers/admin/omniauth_callbacks_controller.rb
 class Admin::OmniauthCallbacksController < Devise::OmniauthCallbacksController
-========
-class Public::OmniauthCallbacksController < Devise::OmniauthCallbacksController
->>>>>>>> origin/develop:app/controllers/public/omniauth_callbacks_controller.rb
-=======
-class Public::OmniauthCallbacksController < Devise::OmniauthCallbacksController
->>>>>>> origin/develop
-=======
-class Admin::OmniauthCallbacksController < Devise::OmniauthCallbacksController
->>>>>>> origin/develop
   # You should configure your model like this:
   # devise :omniauthable, omniauth_providers: [:twitter]
 
