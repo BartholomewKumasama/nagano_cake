@@ -7,7 +7,7 @@ Rails.application.routes.draw do
     registrations: "public/registrations",
     sessions: 'public/sessions'
   }
-  
+
   # 管理者用
   # URL /admin/sign_in ...
   devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
@@ -21,19 +21,24 @@ Rails.application.routes.draw do
   namespace :public do
     resources :addresses, only:[:index,:edit,:create,:update,:destroy]
 
-    resources :orders, only:[:new,:index,:show,:create]
-    post 'orders/confirm'
-    post 'orders/complete'
+    resources :orders, only:[:new,:index,:show,:create]do
+      collection do
+    post :confirm
+    get :complete
+  end
+end  
+
+
 
     resources :cart_items, only:[:index,:create,:update,:destroy]
     delete 'cart_items/destroy_all'
 
-    resources :customers, only:[:show,:edit,:update]
+    resources :cart_items, only:[:show,:edit,:update]
     get 'customers/unsubscribe'
     patch 'customers/withdrawal'
-    
-    resources :items, only:[:index,:show] 
-  
+
+    resources :items, only:[:index,:show]
+
   end
 
 
@@ -49,9 +54,9 @@ Rails.application.routes.draw do
 
     resources :items, only:[:index,:new,:create,:show,:edit,:update]
   end
-  
-    
- 
-  
+
+
+
+
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
