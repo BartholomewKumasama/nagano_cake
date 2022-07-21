@@ -1,18 +1,6 @@
 # frozen_string_literal: true
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<<< HEAD:app/controllers/admin/confirmations_controller.rb
 class Admin::ConfirmationsController < Devise::ConfirmationsController
-========
-class Public::ConfirmationsController < Devise::ConfirmationsController
->>>>>>>> origin/develop:app/controllers/public/confirmations_controller.rb
-=======
-class Public::ConfirmationsController < Devise::ConfirmationsController
->>>>>>> origin/develop
-=======
-class Admin::ConfirmationsController < Devise::ConfirmationsController
->>>>>>> origin/develop
   # GET /resource/confirmation/new
   # def new
   #   super
