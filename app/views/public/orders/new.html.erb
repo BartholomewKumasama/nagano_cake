@@ -4,7 +4,7 @@
 
     <%= f.radio_button :method_of_payment, "credit_card", :checked => true %>
       <%= f.label :method_of_payment, "クレジットカード" %></br>
-    <%#= f.radio_button :method_of_payment, Order.method_of_payments.key(1) %><%#調べ中%>
+    <%#= f.radio_button :method_of_payment, Order.method_of_payments.key(1) %><%#enumの時%>
       <%= f.label :method_of_payment, "銀行振込" %>
 
 
@@ -20,7 +20,7 @@
       <!--配送先を登録してから再度修正する-->
   
     <%= f.radio_button :user_address, 2 %>
-      <%= f.label :user_address, "新しいお届け先" %><
+      <%= f.label :user_address, "新しいお届け先" %><br>
       郵便番号(ハイフンなし)<%= f.text_field :postal_code %></br>
       住所<%= f.text_field :delivery_address %></br>
       宛名<%= f.text_field :delivery_name %></br>
