@@ -1,12 +1,39 @@
+<%= form_with model: @customer, url: public_customer_path, method: :patch do |f| %>
 <h2>マイページ</h2>
 
 <h4>会員情報編集</h4>
 
+<table class="table table-hover">
+  <tr>
+    <th>
+      <%= f.label :氏名 %>
+    </th>
+    <td>姓<br>
+      <%= f.text_field :family_name %>
+    </td>
+    <td>名<br>
+      <%= f.text_field :first_name %>
+    </td>
+  </tr>
+  <tr>
+    <th>
+      <%= f.label :ﾌﾘｶﾞﾅ %>
+    </th>
+    <td>ｾｲ<br>
+      <%= f.text_field :family_name_kana %>
+    </td>
+    <td>ﾒｲ<br>
+      <%= f.text_field :first_name_kana %>
+    </td>
+  </tr>
+  <tr>
+    <th></th>
+  </tr>
+</table>
+ <%= f.submit "編集内容を保存" %>
+      <% end %>
 
-<p>これから中身やります</p>
-<p>まだ退会できません</p>　
 
+<%= link_to "編集内容を保存する",public_customer_path, class: "btn btn-outline-success" %>
 
-<%= link_to "編集内容を保存する", public_customer_path, class: "btn btn-outline-success" %>
-
-<%= link_to "退会する",public_customer_path, class: "btn btn-outline-danger" %>
+<%= link_to "退会する", unsubscribe_public_customers_path, class: "btn btn-outline-danger" %>
