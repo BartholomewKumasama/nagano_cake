@@ -1,25 +1,40 @@
-<h2>商品一覧</h2>
-<%= link_to "+", new_admins_item_path, class: "btn-{themecolor}.rounded-circle.p-0" %>
-<table>
-  <thead>
-    <tr>
-      <th>商品ID</th>
-      <th>商品名</th>
-      <th>税抜価格</th>
-      <th>ジャンル</th>
-      <th>ステータス</th>
-      <th></th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @items.each do |item| %>
-      <tr>
-        <td><%= item.id %></td>
-        <td><%= link_to item.name, admins_item_path(item) %></td>
-        <td><%= item.price %></td>
-        <td><%= item.genre.name %></td>
-        <!--<td>%= item.is_active %></td>-->   <!--←要編集-->
+<div class="col-md-8 offset-md-1">
+  <h1 class="text-right">
+    <%= link_to "+", new_admin_item_path %>
+  </h1>
+  <h2>商品一覧</h2>
+  <table class="table thead-class">
+    <tbody>
+      <tr class="table-secondary">
+        <th>商品ID</th>
+        <th>商品名</th>
+        <th>税抜価格</th>
+        <th>ジャンル</th>
+        <th>ステータス</th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+      <% @items.each do |item| %>
+        <tr>
+          <td>
+            <%= item.id %>
+          </td>
+          <td>
+            <%= link_to item.name, admin_item_path(item) %>
+          </td>
+          <td>
+            <%= item.price %>
+          </td>
+          <td>
+            <%= item.genre.name %>
+          </td>
+          <td>
+            <% if item.is_active %>
+              <%# is_activeの情報を取得して在庫があるかチェック %> <b class="text-success">販売中</b>
+                <%# trueの時の表示 %>
+                  <% else %> <b class="text-secondary">販売停止中</b>
+                    <%# falseの時の表示 %>
+                      <% end %>
+          </td>
+        </tr>
+        <% end %>
+  </table>
+</div>

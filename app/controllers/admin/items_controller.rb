@@ -12,10 +12,10 @@ class Admin::ItemsController < ApplicationController
     @item = Item.new(item_params)
     @genres = Genre.all
     if @item.save
-      redirect_to admins_item_path(@item)
+      redirect_to admin_item_path(@item)
       flash[:notice] = '新しい商品を登録しました。'
-    # else
-    # render "new"
+    else
+    render "new"
     end
   end
 
@@ -30,8 +30,8 @@ class Admin::ItemsController < ApplicationController
   def update
     @item = Item.find(params[:id])
     if @item.update(item_params)
-      redirect_to admins_item_path(@item.id)
-      flash[:notice] = '新しい商品を登録しました。'
+      redirect_to admin_item_path(@item.id)
+      flash[:notice] = '商品情報を編集しました'
     # else
     # render "edit"
     end
