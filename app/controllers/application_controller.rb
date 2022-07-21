@@ -1,6 +1,6 @@
 class ApplicationController < ActionController::Base
 
- def after_sign_in_path_for(resource_or_scope)　#複数のdevice
+ def after_admin_sign_in_path_for(resource_or_scope)　#複数のdevice
     if resource.is_a?(Admin)
        admin_orders_path
     else
@@ -15,7 +15,7 @@ class ApplicationController < ActionController::Base
   end
   
   def after_customers_sign_up_path_for(resource)
-    customers_show_path
+    public_customer_path
   end
   
   def after_customers_sign_out_path_for(resource)
