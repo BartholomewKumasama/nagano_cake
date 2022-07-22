@@ -39,7 +39,7 @@ class Public::SessionsController < Devise::SessionsController
     if @customer.valid_password?(params[:customer][:password]) && (@customer.is_deleted == true)
       ## 【処理内容3】is_deletedがtrueならサインアップページへ移行
       flash[:notice] = "退会済みです"
-      redirect_to new_customer_registration
+      redirect_to new_customer_registration_path
     end
   end
   
