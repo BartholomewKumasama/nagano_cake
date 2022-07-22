@@ -21,7 +21,7 @@ class Public::CustomersController < ApplicationController
   def unsubscribe
   end
 
-  def withdrawal
+  def withdrawl
     @customer = current_customer
     @customer.update(is_deleted: true)
     reset_session

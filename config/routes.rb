@@ -36,7 +36,7 @@ end
     resources :customers, only:[:show,:edit,:update] do
       collection do
         get :unsubscribe
-        patch :withdraw
+        patch :withdrawl
       end
     end
     

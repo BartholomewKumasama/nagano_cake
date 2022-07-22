@@ -1,10 +1,21 @@
-<h2>本当に退会しますか？</h2>
-<p>
-退会すると、会員登録情報や<br />
-これまでの購入履歴が閲覧できなくなります。<br />
-退会する場合は、<span style="color:red">【退会する】</span> をクリックしてください。
-</p>
+<div class="container" style="margin-top: 50px;">
+ <div class="shadow p-3 mb-5 bg-white rounded">
+  <div class="row">
+    <div class="col-md-12" style="text-align: center;">
 
-<%= link_to "退会しない", public_customer_path(current_customer), class: "btn btn-outline-primary" %>
+      <h2 class="border-bottom" style="margin-top: 5px;">本当に退会しますか？</h2>
+      <p style="margin-top: 50px; ">
+      退会すると、会員登録情報や<br />
+      これまでの購入履歴が閲覧できなくなります。<br />
+      退会する場合は、<span style="color:red">【退会する】</span> をクリックしてください。
+      </p>
+      <div class="unsubscribe" style="margin-top: 50px; margin-bottom: 50px;">
+        <%= link_to "退会しない", public_customer_path(current_customer), class: "btn btn-outline-primary w-25" %>
+        <span>　　　　</span>
+        <%= link_to "退会する", withdrawl_public_customers_path, method: :patch, class: "btn btn-outline-danger w-25" %>
+      </div>
 
-<%= link_to "退会する", withdraw_public_customers_path, method: :patch, class: "btn btn-outline-danger" %>
+     </div>
+    </div>
+  </div>
+</div>
