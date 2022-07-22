@@ -1,8 +1,8 @@
 <div class="col-md-10 offset-md-1">
   <div class="row">
-<%= render 'admin/homes/error_form', js: @customer %>
+    
 <%# form_withを使い、情報を取得するモデル、rails routesで調べたURL、メソッドを指定して、'f.text_field'でデータを引っ張ってきてください。%>
-<%= form_with model: @customer, url: admins_customer_path(@customer.id), method: :patch do |f| %>
+<%= form_with model: @customer, url: admin_customer_path(@customer.id), method: :patch do |f| %>
 <table class="table">
     <thead>
       <tr><b><%= @customer.first_name %> <%= @customer.family_name %>さんの会員情報編集 </b></tr>
@@ -11,15 +11,15 @@
       <tbody>
       <tr><td>会員ID</td><td><%= @customer.id %></td></tr>
 
-      <tr><td>氏名</td><td> <%= f.text_field :first_name %>   <%= f.text_field :family_name %></td></tr>
+      <tr><td>氏名</td><td><%= f.text_field :family_name %> <%= f.text_field :first_name %></td></tr>
 
-      <tr><td>フリガナ</td><td><%= f.text_field :first_name_kana %>   <%= f.text_field :family_name_kana %></td></tr>
+      <tr><td>フリガナ</td><td><%= f.text_field :family_name_kana %> <%= f.text_field :first_name_kana %></td></tr>
 
       <tr><td>郵便番号</td><td><%= f.text_field :postal_code %></td></tr>
 
       <tr><td>住所</td><td><%= f.text_area :address %></td></tr>
 
-      <tr><td>電話番号</td><td><%= f.text_field :phone_number %></td></tr>
+      <tr><td>電話番号</td><td><%= f.text_field :telephone_number %></td></tr>
 
       <tr><td>メールアドレス</td><td><%= f.text_field :email %></td></tr>
       <tr><td>会員ステータス</td><td>

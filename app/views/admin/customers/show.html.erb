@@ -1,7 +1,8 @@
 <%# @public = Public.find(params[:id])を使い、指定したPublicユーザーの情報を取得してひたすら表示するだけ %>
 <div class="col-md-8 offset-md-1">
   <div class="row">
-<table class="table">
+    
+  <table class="table">
     <thead>
       <tr><b><%= @customer.first_name %> <%= @customer.family_name %>さんの会員詳細</b></tr>
     </thead>
@@ -9,13 +10,15 @@
     <tbody>
       <tr><td>会員ID</td><td><%= @customer.id %></td></tr>
 
-      <tr><td>氏名</td><td><%= @customer.first_name %>  <%= @customer.family_name %></td></tr>
+      <tr><td>氏名</td><td><%= @customer.family_name %> <%= @customer.first_name %></td></tr>
 
-      <tr><td>フリガナ</td><td><%= @customer.first_name_kana %>  <%= @customer.family_name_kana %></td></tr>
+      <tr><td>フリガナ</td><td><%= @customer.family_name_kana %> <%= @customer.first_name_kana %></td></tr>
 
       <tr><td>郵便番号</td><td><%= @customer.postal_code %></td></tr>
 
       <tr><td>住所</td><td><%= @customer.address %></td></tr>
+      
+      <tr><td>電話番号</td><td><%= @customer.telephone_number %></td></tr>
 
       <tr><td>メールアドレス</td><td><%= @customer.email %></td></tr>
 
@@ -35,7 +38,8 @@
     </div>
 
     <div class="col-md-6">
-    <%= link_to '注文履歴一覧を見る(未実装)', admins_root_path, class:"btn btn-primary" %>
+    <%= link_to '注文履歴一覧を見る(未実装)', admin_root_path, class:"btn btn-primary" %>
     </div>
+    
   </div>
 </div>
