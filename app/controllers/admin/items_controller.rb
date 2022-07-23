@@ -1,4 +1,5 @@
 class Admin::ItemsController < ApplicationController
+  before_action :authenticate_admin! #ログイン済ユーザーのみにアクセスを許可する
   
   def index
     @items = Item.all  #.page(params[:page]).per(10)  kaminariインストール後

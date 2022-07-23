@@ -1,6 +1,7 @@
+<div class="conteiner">
 <div class="row">
 <div class="col-md-6 offset-md-1">
-<h2>商品編集</h2>
+<h2 class="text-left">商品編集</h2>
 <p id="notice"></p>
 <%= form_with model: @item, url: admin_item_path, method: :patch do |f| %>
 
@@ -11,16 +12,16 @@
   <div class="form-group">
   <p id="notice"></p>
         <%= f.label :商品名, class: "mr-5" %>
-        <%= f.text_field :name, class: "form-control title" %>
+        <%= f.text_field :name %>
   <p id="notice"></p>
         <%= f.label :商品説明, class: "mr-5" %>
-        <%= f.text_area :introduction, class: "form-control body" %>
+        <%= f.text_area :introduction %>
   <p id="notice"></p>
         <%= f.label:ジャンル, class: "mr-5" %>
          <%= f.select :genre_id, Genre.all.map { |genre| [genre.name, genre.id] } %><br>
   <p id="notice"></p>
-        <%= f.label :"税抜価格(円)" %>
-        <%= f.text_field :price, class: "form-control body" %>
+        <%= f.label :"税抜価格(円)", class: "mr-5" %>
+        <%= f.text_field :price %>
   </div>
 
 
@@ -33,5 +34,6 @@
   <%= f.submit ' 変更を保存 ' , class: "btn btn-success" %> <%# submit等はform-groupでは囲まない %>
 </form>
 <% end %>
+</div>
 </div>
 </div>

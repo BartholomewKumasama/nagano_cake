@@ -38,7 +38,10 @@
           販売停止中<%# falseの表示がでる %>
           <% end %>
         </td></tr>
-      <tr><td><%= link_to '編集する', edit_admin_item_path(@item.id), class: "btn btn-success"%></td></tr>
+      <tr>
+        <td><%= link_to '編集する', edit_admin_item_path(@item.id), class: "btn btn-success" %></td>
+        <td><%= link_to "一覧に戻る", admin_items_path, class: "btn btn-success" %></td>  <%#　なんとなく不便だったのでつけました %>
+      </tr> 
     </tbody>
   </table>
 
