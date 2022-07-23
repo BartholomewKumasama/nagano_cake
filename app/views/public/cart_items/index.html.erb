@@ -1,2 +1,46 @@
-<h1>Publics::CartItems#index</h1>
-<p>Find me in app/views/publics/cart_items/index.html.erb</p>
+<h3>ショッピングカート</h3>
+
+<table class="table">
+  <thead class="table-dark">
+    <tr>
+      <th>#</th>
+      <th scope="col">商品名</th>
+      <th scope="col">単価</th>
+      <th scope="col">数量</th>
+      <th scope="col">小計</th>
+      <th scope="col"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @cart_items.each do |cart_item| %>
+    <tr>
+      
+      <th scope="row"><%= image_tag cart_item.item.get_image,size:"50x50" %></th>
+      <td><%= cart_item.item.name %></td>
+      <td><%= cart_item.item.add_tax_price.to_s(:delimited) %></td>
+      
+      <td>
+        <%= form_with model: cart_item, url: public_cart_item_path(cart_item.id), method: :patch do |f| %>
+        <%= f.select :amount, *[1..10] %><br>
+        <%= f.submit "変更",class: "btn btn-success" %>
+        <% end %>
+      </td>
+      <td><%= cart_item.subtotal.to_s(:delimited) %></td>
+      
+      <td><%= link_to "削除", public_cart_item_path(cart_item), method: :delete, class: "btn btn-danger" %></td>
+     
+      
+    </tr>
+   <% end %>
+  </tbody>
+</table>
+
+<td>合計金額</td>
+<% @cart_items.each do |cart_item| %>
+<td> <% @total +=  (cart_item.item.add_tax_price)* cart_item.amount %></td>
+<% end %>
+<%= @total.to_s(:delimited) %>
+
+
+
+ <%= link_to "買い物を続ける", root_path, class: "btn btn-primary" %>
