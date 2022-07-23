@@ -35,9 +35,9 @@
   <%# elsif customer_signed_in? %>
 
   <%#ログイン後%>
-  <div>ようこそ、<%#= current_public.family_name %>さん！</div>
+  <div>ようこそ、<%#= current_customer.family_name %>さん！</div>
   <li>
-    <%#=link_to 'マイページ',publics_customer_path %>
+    <%#=link_to 'マイページ',public_customer_path %>
   </li>
   <li>
     <%=link_to '商品一覧',public_items_path,class: 'nav-link text-light btn btn-outline-light ml-4' %>
@@ -46,7 +46,7 @@
     <%=link_to 'カート',public_items_path,class: 'nav-link text-light btn btn-outline-light ml-4' %>
   </li>
   <li>
-    <%#=link_to 'ログアウト', destroy_customer_session_path, method: :delete, class: 'nav-link text-light btn btn-outline-light ml-4' %>
+    <%=link_to 'ログアウト', destroy_customer_session_path, method: :delete, class: 'nav-link text-light btn btn-outline-light ml-4' %>
   </li>
 
 
