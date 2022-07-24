@@ -22,22 +22,23 @@
             <% if customer_signed_in? %>
               <%# 商品情報の値を送る %>
               <%= f.hidden_field :item_id, :value =>@item.id %>
-              <%# 個数入力フォーム %>
-              <%= f.select :amount, *[1..10] %>
-              <%= f.submit "カートに入れる" %>
+              <div class="cart_item" style="text-align: right;">
+                <%# 個数入力フォーム %>
+                <span style="font-size:20px;">
+                  <%= f.select :amount, *[1..10] %>　
+                </span>
+                <%= f.submit "カートに入れる", class:"btn btn-outline-success btn-lg" %>
+              </div>
             <% else %>
-              <%= f.submit "要ログイン" %>
+              <div class="button" style="text-align: right;">
+                <button type="submit" class="btn btn-outline-success btn-lg　disabled">ログインしてください</button>
+              </div>
             <% end %>
           <% end %>
           
           
-          <button type="button" class="btn btn-primary rounded-circle p-0" style="width:2rem;height:2rem;">＋</button>
-          <span>　</span>
-          <button type="button" class="btn btn-danger rounded-circle p-0" style="width:2rem;height:2rem;">－</button>
           
-          <div class="button" style="text-align: right;">
-          <button type="button" class="btn btn-outline-success btn-lg">カートに入れる</button>
-          </div>
+          
       </div>
     </div>
   </div>

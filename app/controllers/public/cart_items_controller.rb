@@ -18,13 +18,21 @@ class Public::CartItemsController < ApplicationController
   end
 
   def destroy_all
+    @cart_item = current_customer.cart_items
+    @cart_item.destroy_all
+    redirect_to public_cart_items_path
   end
 
   def create
-    @cart_item = current_customer.cart_items.new(cart_item_params)
-    @cart_item.save
-     redirect_to root_path
-    #redirect_to public_cart_items_path
+    @new_cart_item = current_customer.cart_items.new(cart_item_params)
+    if current_customer.cart_items.find_by(item_id: @new_cart_item.item.id)
+      @cart_item = current_customer.cart_items.find_by(item_id: @new_cart_item.item.id)
+      @cart_item.amount += @new_cart_item.amount
+      @cart_item.save
+    else
+      @new_cart_item.save
+    end
+    redirect_to public_cart_items_path
   end
   
   private
