@@ -18,21 +18,15 @@
   <% @items.first(4).each do |item| %>
    <div class ="col-md-4">
      <ul class="list-inline">
-         <% if item.item_image.attached? %>
-           <%= link_to item_path(item.id) do %>
-             <%= image_tag item.get_item_image(180,180) %>
+           <%= link_to public_items_path(item.id) do %>
+             <%= image_tag item.get_image,size: "180x180"%>
            <% end %>
-         <% else %>
-            <%= link_to item_path(item.id) do %>
-              <%= image_tag 'no_image', size: "180x180" %>
-            <% end %>
-
          <%= item.name %><br>
      ￥<%= (item.price).to_s(:delimited) %><br><%#上手く設定が出来ていない可能性有%>
      </ui>
    </div>
   <% end %>
- <% end %>
+ 
   <div class="text-right mr-5 mt-5">
     <%= link_to '全ての商品を見る >', public_items_path %>
   </div>
