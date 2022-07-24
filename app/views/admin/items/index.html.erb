@@ -14,19 +14,10 @@
         </tr>
           <% @items.each do |item| %>
             <tr class="table-borderless">
-              <td>
-                <%= item.id %>
-              </td>
-              <td>
-                <%= link_to item.name, admin_item_path(item) %>
-              </td>
-              <td>
-                <%= item.price %>
-                  <%# [.to_s(:delimited)]３桁ごとにカンマ表記] 出来ていない %>
-              </td>
-              <td>
-                <%= item.genre.name %>
-              </td>
+              <td><%= item.id %></td>
+              <td><%= link_to item.name, admin_item_path(item) %></td>
+              <td><%= item.price.to_s(:delimited) %></td>
+              <td><%= item.genre.name %></td>
               <td>
                 <% if item.is_active %><%# is_activeの情報を取得して在庫があるかチェック %>
                   <b class="text-success">
@@ -39,13 +30,15 @@
             <% end %>
       </table>
 </div>
+<%= paginate @items %>
 
-<nav aria-label="Page navigation">
-  <ul class="pagination justify-content-center">
-    <li><a href="#">1</a></li>
-    <li><a href="#">2</a></li>
-    <li><a href="#">3</a></li>
-    <li><a href="#"> Next ></a></li>
-    <li><a href="#">Last ≫</a></li>
-  </ul>
-</nav>
+
+<!--<nav aria-label="Page navigation">-->
+<!--  <ul class="pagination justify-content-center">-->
+<!--    <li><a href="#">1</a></li>-->
+<!--    <li><a href="#">2</a></li>-->
+<!--    <li><a href="#">3</a></li>-->
+<!--    <li><a href="#"> Next ></a></li>-->
+<!--    <li><a href="#">Last ≫</a></li>-->
+<!--  </ul>-->
+<!--</nav>-->
