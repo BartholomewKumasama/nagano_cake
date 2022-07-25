@@ -17,15 +17,16 @@ class Public::OrdersController < ApplicationController
       order_detail.save
       end
     cart_item.destroy_all
-    redirect_to public_orders_complete_path
+    redirect_to complete_public_orders
   end
 
 
 
   def confirm
        @order = Order.new(order_params)
-       @cart_items=current_customer.cart_items.all
+       @cart_items=current_customer.cart_items
        @total = 0
+      
     if params[:order][:select_address]=="0"
        @order.postal_code = current_customer.postal_code
        @order.address = current_customer.address
@@ -35,6 +36,7 @@ class Public::OrdersController < ApplicationController
        @order.postal_code = @address.postal_code
        @order.address = @address.address
        @order.name = @address.name
+       
     end
   end
 
