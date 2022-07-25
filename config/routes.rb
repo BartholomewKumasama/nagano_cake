@@ -44,7 +44,10 @@ Rails.application.routes.draw do
     end
     
     resources :items, only:[:index,:show] 
-  
+    
+    resources :genres, only:[:show]
+    
+    
   end
 
 
