@@ -1,18 +1,18 @@
 <div class="container">
     <div class="row">
-        <div class="col-md-2"style="margin-top: 50px; text-align: center;">
-          
-         <button type="button" class="btn btn-dark w-100 btn-lg">ジャンル検索</button>
-        <% @genres.each do |genre| %>
-          <div>
-            <%= link_to genre.name, public_genre_path(genre.id),class: "btn btn-outline-dark w-100" %>
-          </div>
-        <% end %>
-          
+      
+        <div class="col-md-2 "style="margin-top: 50px; text-align: center;">
+          <button type="button" class="btn btn-dark w-100 btn-lg">ジャンル検索</button>
+          <% @genres.each do |genre| %>
+            <div>
+              <%= link_to genre.name, public_genre_path(genre.id),class: "btn btn-outline-dark w-100" %>
+            </div>
+          <% end %>
         </div>
+        
            <div class="col-md-10" style="margin-top: 50px;">
              
-              <h4 class="border-bottom">商品一覧  　<span style="font-size:20px;">(全<span style="font-size:25px;"><%= @items.count %></span>件)</span></h4>
+              <h4 class="border-bottom">商品一覧： <%= @genre.name %> <span style="font-size:20px;">(全<span style="font-size:25px;"><%= @items.count %></span>件)</span></h4>
               <div class="d-flex flex-wrap">
               <% @items.each do |item| %>
                <div class ="item_container px-5 py-5" style = "width: 25%">
