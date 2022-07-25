@@ -24,10 +24,11 @@ class Public::OrdersController < ApplicationController
 
 
   def confirm
+       @customer = current_customer
        @cart_items = CartItem.all
        @order = current_customer.orders.new  
-       #@order = Order.new(order_params)
-       #@cart_items=current_customer.cart_items
+       @order = Order.new(order_params)
+       @cart_items=current_customer.cart_items
        @total = 0
       
     if params[:order][:select_address]=="0"
