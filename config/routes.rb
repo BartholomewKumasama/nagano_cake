@@ -26,7 +26,7 @@ Rails.application.routes.draw do
         post :confirm
         get :complete
       end
-    end  
+    end
 
 
 
@@ -42,12 +42,12 @@ Rails.application.routes.draw do
         patch :withdrawl
       end
     end
-    
-    resources :items, only:[:index,:show] 
-    
+
+    resources :items, only:[:index,:show]
+
     resources :genres, only:[:show]
-    
-    
+
+
   end
 
 
@@ -55,7 +55,7 @@ Rails.application.routes.draw do
     root to: 'homes#top'
     resources :makings, only:[:update]
 
-    resources :orders, only:[:edit,:update]
+    resources :orders, only:[:edit,:update,:show]
 
     resources :customers, only:[:index,:show,:edit,:update]
 
