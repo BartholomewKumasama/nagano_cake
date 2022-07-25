@@ -3,58 +3,27 @@
   <p id="notice"></p>
 <table class="table thead-class">
   <%#thead class="thead-lignt"%>
-  <tbody>
-      <tr class="table-secondary"><th>購入日時</th>
-        <th>購入者</th>
-        <th>注文個数</th>
-        <th>注文ステータス</th>
-        <th colspan="5"></th></tr>
-
-
-      <% @orders.each do |order| %> <%# ここでordersとそれに関連するモデルの情報を取得して一覧を表示 %>
-        <%# １：Ｎの関係になっているモデル情報を表示するなら、この場合だとorder_detailsに紐づけられた、
-        ただ一つのorder_idの情報も探しておかないと、どのordere_detailsの情報を表示するか決めることができません %>
-        <%# order.order_details.each do |order_details| %> <%# ここでも@ordersからデータを貰います %>
-
-      <tr>
-      <td><%= link_to order.created_at.to_s(:datetime_jp), admin_order_path(order.id) %>  <%# 注文idごとの登録日時をtime_formats.rbで指定した方式で表示 %></td>
-
-      <td>
-        <%# Ｎ：１の関係の場合は、Ｎであるorderが決まれば自動的に表示するpublicは１つに決められます。 %>
-        <%= order.public.first_name+order.public.family_name %>
-      </td>
-
-      <td><% amount = 0 %>
-        <% order.order_details.each do |order_details| %>
-          <% order_details.quantity %>
-          <% amount += order_details.quantity.to_i %>
+  <thead>
+        <tr class="table-color">
+          <th>購入日時</th>
+          <th>購入者</th>
+          <th>注文個数</th>
+          <th>注文ステータス</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @orders.each do |order| %>
+          <tr>
+            <td><%= link_to order.created_at.strftime('%Y/%m/%d %H:%M'), admin_order_path(order) %></td>
+            <td><%= order.customer.family_name + order.customer.first_name %></td>
+            <td><%= order.order_details.sum(:amount) %></td>
+            <td><%= order.status_i18n %></td>
+          </tr>
         <% end %>
-        <%= amount %><%#= order_details.quantity %></td><%# 全てのorder_detailsのorder.idのカラム情報が必ず必要です %>
-
-      <td>
-        <% if order.status == 0 %> <%# 注文idごとの受注ステータスを表示 %>
-        入金待ち
-        <% elsif order.status == 1 %>
-        入金確認
-        <% elsif order.status == 2 %>
-        制作中
-        <% elsif order.status == 3 %>
-        発送準備中
-        <% elsif order.status == 4 %>
-        発送済み
-        <% else %>
-        その他  <%# なんらかのトラブルで、想定していない値になったことが分かるように、設定しています。 %>
-        <% end %>
-      </td>
-      
-      <td><%#= order.status %>　<%# 注文idごとの受注ステータスを表示 %></td>
-
-      </tr>
-        <% end %>
-    </tbody>
+      </tbody>
   </table>
   </div>
-  
+
 <nav aria-label="Page navigation">
   <ul class="pagination justify-content-center">
     <li><a href="#">1</a></li>
