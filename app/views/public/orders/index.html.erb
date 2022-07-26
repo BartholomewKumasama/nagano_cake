@@ -1,7 +1,11 @@
+<div class='container'>
+  <div class='row'>
+    <div class="col-md-12"style="margin-top: 30px;">
+
 <h3>注文履歴一覧</h3>
 
-<table>
-  <thead>
+<table class="table">
+       <thead class="table-dark">
     <tr>
         <th>注文日</th>
         <th>配送先</th>
@@ -29,10 +33,14 @@
               
         <td><%= order.billing_amount.to_s(:delimited) %>円</td>
         <td><%= order.status_i18n %></td>
-        <td><%= link_to "表示する", public_order_path(order.id), class: "btn btn-sm btn-primary w-100" %></td>
+        <td><%= link_to "表示する", public_order_path(order.id), class: "btn btn-sm btn-outline-primary w-100" %></td>
     </tr>
 </tbody>
 <% end %>
 </table>
 
 <div><%= link_to "表示する", public_order_path(@orders) %></div>
+
+</div>
+</div>
+</div>
