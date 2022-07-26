@@ -52,10 +52,15 @@
           <td>送料</td>
           <td>￥800</td>
         </tr>
+
         <tr>
           <% @cart_items.each do |cart_item| %>
           <% @total +=  (cart_item.item.add_tax_price)* cart_item.amount %>
           <% end %>
+
+          <td>お届け先</td>
+          <td>〒<%= @customer.postal_code %><%= @customer.address %></br><%= current_customer.family_name  %></td>
+
         </tr>
         <tr>
           <td>請求額</td>

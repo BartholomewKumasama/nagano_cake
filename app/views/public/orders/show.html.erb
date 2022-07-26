@@ -14,9 +14,9 @@
               <tr>
                 <th class="info">配送先</th>
                 <td class="text-left">
-                  <%= @order.postal_code %><br>
-                  <%= @order.address %><br>
-                  <%= @order.name %>
+                  〒<%= @customer.postal_code %> <br>
+                  <%= @customer.address %><br>
+                  <%= current_customer.family_name %>
                 </td>
               </tr>
               <tr>
