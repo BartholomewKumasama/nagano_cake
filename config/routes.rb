@@ -53,9 +53,14 @@ Rails.application.routes.draw do
 
   namespace :admin do
     root to: 'homes#top'
+    
+    get "orders/history/:id" => "orders#history", as: "order_history"
+    
     resources :makings, only:[:update]
 
     resources :orders, only:[:edit,:update,:show]
+    
+    resources :order_details, only: [:show, :update]
 
     resources :customers, only:[:index,:show,:edit,:update]
 
