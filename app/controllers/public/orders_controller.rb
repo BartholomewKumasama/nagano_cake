@@ -2,6 +2,7 @@ class Public::OrdersController < ApplicationController
   def new
     @customer = current_customer
     @order = Order.new
+    @addresses = current_customer.addresses.all
   end
 
   def create
@@ -35,12 +36,17 @@ class Public::OrdersController < ApplicationController
        @order.postal_code = current_customer.postal_code
        @order.address = current_customer.address
     elsif params[:order][:select_address]=="1"
-       @address = Address.find(params[:order][:address_id])
+       @address= Address.find(params[:order][:address_id])
        @order.postal_code = @address.postal_code
        @order.address = @address.address
        @order.name = @address.name
-
+       @order.payment_method = params[:order][:payment_method]
+    elsif params[:order][:select_address] = "2"
+       @order.postal_code = params[:order][:postal_code]
+       @order.address = params[:order][:address]
+       @order.name = params[:order][:name]
     end
+    
   end
 
   def complete
@@ -59,7 +65,7 @@ class Public::OrdersController < ApplicationController
 
  private
   def order_params
-    params.require(:order).permit(:parameters, :postal_code,:payment_method,:customer_id, :address, :name, :billing_amount, :postage)
+    params.require(:order).permit(:parameters, :postal_code,:payment_method,:customer_id, :address, :name, :billing_amount, :postage, :status)
   end
 
 end

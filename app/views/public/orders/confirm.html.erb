@@ -33,15 +33,11 @@
         <tr>
           <td>支払方法</td>
             <td>
-              <% if @order.payment_method_i18n == 0 %>
-                    クレジットカード
-                  <% else %>
-                    銀行振込
-                  <% end %>
+              <%= @order.payment_method_i18n  %>
             </td>
           </tr>
             <td>お届け先</td>
-            <td>〒<%= @order.postal_code %><%= @order.address %></br><%= current_customer.family_name %></td>
+            <td>〒<%= @order.postal_code %><%= @order.address %></br><%= @order.name  %></td>
           </tr>
       </table>  
       </div>
@@ -59,7 +55,7 @@
           <% end %>
 
           <td>お届け先</td>
-          <td>〒<%= @order.postal_code %><%= @order.address %></br><%= current_customer.family_name  %></td>
+          <td>〒<%= @order.postal_code %><%= @order.address %></br><%= @order.name  %></td>
         </tr>
         <tr>
           <td>請求額</td>
