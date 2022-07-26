@@ -1,8 +1,10 @@
-<div class="col-md-9 offset-md-1">
-  <h2>注文履歴一覧</h2>
+<div class="container" style="margin-top: 50px;">
+  <div class="col-md-9 offset-md-1"> <%#.offset-md-1 は .col-md-9 を 1 カラムぶん右に移動%>
+<div class="shadow p-3 mb-5 bg-white rounded">
+  
+  <h2 class="p-3 mb-2 bg-dark text-white">注文履歴一覧</h2>
   <p id="notice"></p>
-<table class="table">
-  <%#thead class="thead-lignt"%>
+<table class="table table-hover">
   <thead>
         <tr class="table-secondary">
           <th>購入日時</th>
@@ -26,12 +28,5 @@
   </table>
   </div>
 
-<nav aria-label="Page navigation">
-  <ul class="pagination justify-content-center">
-    <li><a href="#">1</a></li>
-    <li><a href="#">2</a></li>
-    <li><a href="#">3</a></li>
-    <li><a href="#"> Next ></a></li>
-    <li><a href="#">Last ≫</a></li>
-  </ul>
-</nav>
+</div>
+</div>

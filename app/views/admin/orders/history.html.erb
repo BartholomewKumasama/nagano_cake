@@ -1,5 +1,8 @@
-<div class="col-md-9 offset-md-1">
-  <h2><%= @customer.family_name %><%= @customer.first_name %>さんの注文履歴</h2>
+<div class="container" style="margin-top: 50px;">
+  <div class="shadow p-3 mb-5 bg-white rounded">
+  <div class="row">
+
+  <h2 class="p-3 mb-2 bg-dark text-white"><%= @customer.family_name %><%= @customer.first_name %>さんの注文履歴</h2>
   <table class="table">
     <thead>
       <tr class="table-secondary">
@@ -13,19 +16,12 @@
         <tr>
           <td><%= link_to order.created_at.strftime('%Y/%m/%d %H:%M'), admin_order_path(order.id) %></td>
           <td><%= order.order_details.sum(:amount) %></td>
-          <td><%= order.status_i18n %></td>
+          <td><b class="text-success"><%= order.status_i18n %></b></td>
         </tr>
       <% end %>
     </tbody>
   </table>
 </div>
 
-<nav aria-label="Page navigation">
-  <ul class="pagination justify-content-center">
-    <li><a href="#">1</a></li>
-    <li><a href="#">2</a></li>
-    <li><a href="#">3</a></li>
-    <li><a href="#"> Next ></a></li>
-    <li><a href="#">Last ≫</a></li>
-  </ul>
-</nav>
+</div>
+</div>
