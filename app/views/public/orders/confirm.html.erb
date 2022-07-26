@@ -46,11 +46,7 @@
           </td>
         </tr>
           <td>お届け先</td>
-<<<<<<< HEAD
-          <td>〒<%= @customer.postal_code %><%= @customer.address %></br><%= @order.name %></td>
-=======
-          <td>〒<%= @order.postal_code %><br><%= @order.address %><br><%= @order.name %></td>
->>>>>>> origin/develop
+          <td>〒<%= @customer.postal_code %><%= @customer.address %></br><%= current_customer.family_name  %></td>
         </tr>
     </tbody>
   </table>
