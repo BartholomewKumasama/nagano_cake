@@ -7,12 +7,17 @@ class Admin::OrdersController < ApplicationController
   	@order_details = @order.order_details
   end
 
+  def history
+    @customer = Customer.find(params[:id])
+    @orders = Order.where(customer_id: params[:id]).order(id: "DESC").page(params[:page])
+  end
+
   def update
   	@order = Order.find(params[:id])
   # 	@order_items = @order.order_items
   	@order.update(order_params)
 
-  		 redirect_to  admin_order_path(@order)
+  		 redirect_to admin_order_path(@order)
   end
 
   private

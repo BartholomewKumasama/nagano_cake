@@ -1,4 +1,6 @@
 class Admin::GenresController < ApplicationController
+  before_action :authenticate_admin! #ログイン済ユーザーのみにアクセスを許可する
+  
   def index
     @genres = Genre.all
     @genre = Genre.new
