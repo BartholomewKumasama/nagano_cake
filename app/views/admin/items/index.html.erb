@@ -1,10 +1,13 @@
-<div class="col-md-9 offset-md-1"> <%#.offset-md-1 は .col-md-9 を 1 カラムぶん右に移動%>
+  <div class="container" style="margin-top: 50px;">
+  <div class="col-md-9 offset-md-1"> <%#.offset-md-1 は .col-md-9 を 1 カラムぶん右に移動%>
+<div class="shadow p-3 mb-5 bg-white rounded">
+
   <h1 class="text-right">
-    <%= link_to "＋", new_admin_item_path, class: "btn btn-light rounded-circle" %>
+    <%= link_to "＋", new_admin_item_path, class: "btn btn-info rounded-circle" %>
   </h1>
-    <h2>商品一覧</h2>
+    <h2 class="p-3 mb-2 bg-dark text-white">商品一覧</h2>
       <p id="notice"></p>
-      <table class="table">
+      <table class="table table-hover">
         <tr class="table-secondary">
           <th>商品ID</th>
               <th>商品名</th>
@@ -33,3 +36,5 @@
 <ul class="pagination justify-content-center">
 <%= paginate @items %>
 </ul>
+</div>
+</div>

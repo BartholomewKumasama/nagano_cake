@@ -1,39 +1,38 @@
-<div class="conteiner">
-<div class="row">
-<div class="col-md-6 offset-md-1">
-<h2 class="text-left">商品編集</h2>
-<p id="notice"></p>
-<%= form_with model: @item, url: admin_item_path, method: :patch do |f| %>
-
-<form>
-  <%= f.label :商品画像, class: "mr-5" %>
-  <%= f.file_field :image, accept: "image/*" %>
-
-  <div class="form-group">
-  <p id="notice"></p>
-        <%= f.label :商品名, class: "mr-5" %>
-        <%= f.text_field :name %>
-  <p id="notice"></p>
-        <%= f.label :商品説明, class: "mr-5" %>
-        <%= f.text_area :introduction %>
-  <p id="notice"></p>
-        <%= f.label:ジャンル, class: "mr-5" %>
-         <%= f.select :genre_id, Genre.all.map { |genre| [genre.name, genre.id] } %><br>
-  <p id="notice"></p>
-        <%= f.label :"税抜価格(円)", class: "mr-5" %>
-        <%= f.text_field :price %>
+<div class="container" style="margin-top: 50px;">
+  <div class="shadow p-3 mb-5 bg-white rounded">
+    <div class="row">
+      <div class="col-md-12" style="text-align: left;">
+        <h2 class="p-3 mb-2 bg-dark text-white">商品編集</h2>
+       <p id="notice"></p>
+        <%= form_with model: @item, url: admin_item_path, method: :patch do |f| %>
+        <form>
+          <%= f.label :商品画像, class: "mr-5" %>
+            <%= f.file_field :image, accept: "image/*" %>
+  
+            <div class="form-group">
+              <p id="notice"></p>
+                    <%= f.label :商品名, class: "mr-5" %>
+                    <%= f.text_field :name %>
+                    <p id="notice"></p>
+                  <%= f.label :商品説明, class: "mr-5" %>
+                <%= f.text_area :introduction %>
+              <p id="notice"></p>
+                <%= f.label:ジャンル, class: "mr-5" %>
+                   <%= f.select :genre_id, Genre.all.map { |genre| [genre.name, genre.id] } %><br>
+                    <p id="notice"></p>
+                    <%= f.label :"税抜価格(円)", class: "mr-5" %>
+                <%= f.text_field :price %>
+            </div>
+          <td><%= f.label :is_active, "販売ステータス" %></td>
+            <%= f.radio_button :is_active, :true ,{:checked => true} %>
+             <%= f.label :is_active, "販売中" %>
+              <%= f.radio_button :is_active, :false %>
+               <%= f.label :is_active, "販売停止中" %>
+                 <p id="notice"></p>
+                  <%= f.submit ' 変更を保存 ' , class: "btn btn-outline-success" %> <%# submit等はform-groupでは囲まない %>
+        </form>
+        <% end %>
+      </div>
+    </div>
   </div>
-
-
-  <td><%= f.label :is_active, "販売ステータス" %></td>
-    <%= f.radio_button :is_active, :true ,{:checked => true} %>
-    <%= f.label :is_active, "販売中" %>
-    <%= f.radio_button :is_active, :false %>
-    <%= f.label :is_active, "販売停止中" %>
-  <p id="notice"></p>
-  <%= f.submit ' 変更を保存 ' , class: "btn btn-success" %> <%# submit等はform-groupでは囲まない %>
-</form>
-<% end %>
-</div>
-</div>
 </div>
