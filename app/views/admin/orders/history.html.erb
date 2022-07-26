@@ -1,0 +1,31 @@
+<div class="col-md-9 offset-md-1">
+  <h2><%= @customer.family_name %><%= @customer.first_name %>さんの注文履歴</h2>
+  <table class="table">
+    <thead>
+      <tr class="table-secondary">
+        <th>購入日時</th>
+        <th>注文個数</th>
+        <th>注文ステータス</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @orders.each do |order| %>
+        <tr>
+          <td><%= link_to order.created_at.strftime('%Y/%m/%d %H:%M'), admin_order_path(order.id) %></td>
+          <td><%= order.order_details.sum(:amount) %></td>
+          <td><%= order.status_i18n %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+
+<nav aria-label="Page navigation">
+  <ul class="pagination justify-content-center">
+    <li><a href="#">1</a></li>
+    <li><a href="#">2</a></li>
+    <li><a href="#">3</a></li>
+    <li><a href="#"> Next ></a></li>
+    <li><a href="#">Last ≫</a></li>
+  </ul>
+</nav>

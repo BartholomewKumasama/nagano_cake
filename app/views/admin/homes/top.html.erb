@@ -1,10 +1,10 @@
-<div class="col-md-8 offset-md-1">
-  <b>注文履歴一覧</b>
+<div class="col-md-9 offset-md-1">
+  <h2>注文履歴一覧</h2>
   <p id="notice"></p>
-<table class="table thead-class">
+<table class="table">
   <%#thead class="thead-lignt"%>
   <thead>
-        <tr class="table-color">
+        <tr class="table-secondary">
           <th>購入日時</th>
           <th>購入者</th>
           <th>注文個数</th>
@@ -17,7 +17,9 @@
             <td><%= link_to order.created_at.strftime('%Y/%m/%d %H:%M'), admin_order_path(order) %></td>
             <td><%= order.customer.family_name + order.customer.first_name %></td>
             <td><%= order.order_details.sum(:amount) %></td>
-            <td><%= order.status_i18n %></td>
+            <td>
+              <b class="text-success"><%= order.status_i18n %></b>
+            </td>
           </tr>
         <% end %>
       </tbody>
