@@ -28,13 +28,12 @@ class Public::OrdersController < ApplicationController
        @cart_items = CartItem.all
        @order = current_customer.orders.new
        @order = Order.new(order_params)
-       @cart_items=current_customer.cart_items
+       #@order.name = current_customer.first_name + current_customer.last_name
        @total = 0
 
     if params[:order][:select_address]=="0"
        @order.postal_code = current_customer.postal_code
        @order.address = current_customer.address
-       #@order.name = current_customer.last_name + current_customer.first_name
     elsif params[:order][:select_address]=="1"
        @address = Address.find(params[:order][:address_id])
        @order.postal_code = @address.postal_code
@@ -49,6 +48,7 @@ class Public::OrdersController < ApplicationController
 
   def index
      @orders = Order.all
+     @customer = current_customer
   end
 
   def show
@@ -59,7 +59,7 @@ class Public::OrdersController < ApplicationController
 
  private
   def order_params
-    params.require(:order).permit(:payment_method, :customer_id, :address, :name, :billing_amount, :postage)
+    params.require(:order).permit(:parameters, :postal_code,:payment_method,:customer_id, :address, :name, :billing_amount, :postage)
   end
 
 end
