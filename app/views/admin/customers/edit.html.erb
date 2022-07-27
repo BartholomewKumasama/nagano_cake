@@ -1,7 +1,6 @@
 <div class="container" style="margin-top: 50px;">
-  <div class="shadow p-3 mb-5 bg-white rounded">
-  <div class="row">
-     <div class="col-md-12" style="text-align: left;">
+  <div class="col-md-8 offset-md-2"> <%#.offset-md-1 は .col-md-9 を 1 カラムぶん右に移動%>
+<div class="shadow p-3 mb-5 bg-white rounded">
 
 <%# form_withを使い、情報を取得するモデル、rails routesで調べたURL、メソッドを指定して、'f.text_field'でデータを引っ張ってきてください。%>
 <%= form_with model: @customer, url: admin_customer_path(@customer.id), method: :patch do |f| %>
@@ -34,11 +33,10 @@
       </td></tr>
     </tbody>
   </table>
-  <%= f.submit '変更を保存', class: "btn btn-outline-success" %>
+  &emsp;<%= f.submit '変更を保存', class: "btn btn-outline-success" %>
   <% end %>
-  </div>
-  </div>
 
-
+  </div>
+</div>
 
 
