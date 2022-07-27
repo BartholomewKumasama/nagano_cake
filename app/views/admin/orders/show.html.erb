@@ -4,25 +4,27 @@
     <div class="col-md-12" style="text-align: left;">
       <h2 class="p-3 mb-2 bg-dark text-white">注文履歴詳細</h2>
 
-      <table>
+      <br>
+      <table class="ml-5">
        <tr>
         <th class= "order-show">購入者</th>
-        <td>&emsp;<%= @order.customer.family_name %>&nbsp;<%= @order.customer.first_name %></td>
+        <td>&emsp;&emsp;&emsp;&emsp;<%= @order.customer.family_name %>&nbsp;<%= @order.customer.first_name %></td>
 
       </tr>
       <tr>
         <th class= "order-show">配送先</th>
-        <td>&emsp;〒<%= @order.customer.postal_code %>&emsp;<%= @order.customer.address %><br><%= @order.name %></td>
+        <td>&emsp;&emsp;&emsp;&emsp;〒<%= @order.customer.postal_code %>&emsp;<%= @order.customer.address %><br>&emsp;&emsp;&emsp;&emsp;<%= @order.name %></td>
       </tr>
       <tr>
         <th class= "order-show">支払い方法</th>
-        <td>&emsp;<%= @order.payment_method %></td>
+        <td>&emsp;&emsp;&emsp;&emsp;<%= @order.payment_method %></td>
       </tr>
       <tr>
 
         <th>注文ステータス</th>
         <td>
           <%= form_with model: @order, url: admin_order_path(@order.id), method: :patch do |f| %>
+            &emsp;&emsp;&nbsp;
           　<%= f.select :status,["入金待ち","入金確認","製作中","発送準備中","発送済み"] ,style: "margin-top:10px;#" %>
             <%= f.submit "更新" ,class: "btn btn-outline-primary btn-sm" %></td>
           <% end %>
@@ -30,6 +32,8 @@
       </table>
     </div>
   </div>
+  <br>
+  <br>
   <div class="orders-show">
     <div class="col-xs-9">
       <table class="table">
@@ -57,7 +61,9 @@
       </table>
     </div>
 
-    <div class="col-lg-6 d-flex align-items-end">
+    <br>
+    <div class="d-flex align-items-end justify-content-end mr-5">
+
       <table class="float-right" cellpadding="5">
         <tr class="border-top">
           <th><h6>商品合計</h6></th>
