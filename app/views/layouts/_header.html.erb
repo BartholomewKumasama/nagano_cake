@@ -1,5 +1,5 @@
 <header>
-  <nav class="navbar navbar-expand-lg bg-info">
+  <nav class="navbar navbar-expand-lg bg-white">
 
 <div class="container">
 
@@ -9,49 +9,49 @@
 
   <h2 class="nav-link text-left">
     <%= link_to root_path, class: "nav-link text-dark" do %>
-      <i class="fas fa-birthday-cake"></i>Nagano Cake
+      <i class="fas fa-birthday-cake"></i> Nagano Cake
     <% end %>
   </h2>
 
   <li class="list-unstyled">ようこそ、<%= current_customer.family_name %>さん！</li>
 
-  <li class="nav-link text-light"><%= link_to "マイページ", public_customer_path(current_customer), class: "nav-link text-light" %></li>
+  <li class="nav-link text-dark"><%= link_to "マイページ", public_customer_path(current_customer), class: "nav-link text-dark" %></li>
 
-  <li class="nav-link text-light"><%= link_to "商品一覧", public_items_path, class: "nav-link text-light" %></li>
+  <li class="nav-link text-dark"><%= link_to "商品一覧", public_items_path, class: "nav-link text-dark" %></li>
 
-  <li class="nav-link text-light"><%= link_to "カート", public_cart_items_path, class: "nav-link text-light" %></li>
+  <li class="nav-link text-dark"><%= link_to "カート", public_cart_items_path, class: "nav-link text-dark" %></li>
 
-  <li class="nav-link text-light"><%= link_to "ログアウト", destroy_customer_session_path, method: :delete, class: "nav-link text-light" %></li>
+  <li class="nav-link text-dark"><%= link_to "ログアウト", destroy_customer_session_path, method: :delete, class: "nav-link text-dark" %></li>
 
 <% elsif admin_signed_in? %>
 
   <h2 class="nav-link text-left"><%= link_to admin_root_path, class: "nav-link text-dark" do %>
-    <i class="fas fa-birthday-cake"></i>Nagano Cake</h2>
+    <i class="fas fa-birthday-cake"></i> Nagano Cake</h2>
   <% end %>
 
-  <li class="nav-link text-light"><%= link_to "商品一覧", admin_items_path, class: "nav-link text-light" %></li>
+  <li class="nav-link text-dark"><%= link_to "商品一覧", admin_items_path, class: "nav-link text-dark" %></li>
 
-  <li class="nav-link text-light"><%= link_to "会員一覧", admin_customers_path, class: "nav-link text-light" %></li>
+  <li class="nav-link text-dark"><%= link_to "会員一覧", admin_customers_path, class: "nav-link text-dark" %></li>
 
-  <li class="nav-link text-light"><%= link_to "注文履歴一覧", admin_root_path, class: "nav-link text-light" %></li>
+  <li class="nav-link text-dark"><%= link_to "注文履歴一覧", admin_root_path, class: "nav-link text-dark" %></li>
 
-  <li class="nav-link text-light"><%= link_to "ジャンル一覧", admin_genres_path, class: "nav-link text-light" %></li>
+  <li class="nav-link text-dark"><%= link_to "ジャンル一覧", admin_genres_path, class: "nav-link text-dark" %></li>
 
-  <li class="nav-link text-light"><%= link_to "ログアウト", destroy_admin_session_path, method: :delete, class: "nav-link text-light" %></li>
+  <li class="nav-link text-dark"><%= link_to "ログアウト", destroy_admin_session_path, method: :delete, class: "nav-link text-dark" %></li>
 
 <% else %>
 
   <h2 class="nav-link text-left"><%= link_to root_path, class: "nav-link text-dark" do %>
-    <i class="fas fa-birthday-cake"></i>Nagano Cake</h2>
+    <i class="fas fa-birthday-cake"></i> Nagano Cake</h2>
   <% end %>
 
-  <li class="nav-link text-light"><%= link_to "About", about_path, class: "nav-link text-light" %></li>
+  <li class="nav-link text-dark"><%= link_to "About", about_path, class: "nav-link text-dark" %></li>
 
-  <li class="nav-link text-light"><%= link_to "商品一覧", public_items_path, class: "nav-link text-light" %></li>
+  <li class="nav-link text-dark"><%= link_to "商品一覧", public_items_path, class: "nav-link text-dark" %></li>
 
-  <li class="nav-link text-light"><%= link_to "新規登録" ,new_customer_registration_path, class: "nav-link text-light" %></li>
+  <li class="nav-link text-dark"><%= link_to "新規登録" ,new_customer_registration_path, class: "nav-link text-dark" %></li>
 
-  <li class="nav-link text-light"><%= link_to "ログイン" ,new_customer_session_path, class: "nav-link text-light" %></li>
+  <li class="nav-link text-dark"><%= link_to "ログイン" ,new_customer_session_path, class: "nav-link text-dark" %></li>
 
 <% end %>
 
