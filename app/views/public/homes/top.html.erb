@@ -1,41 +1,59 @@
-      <div class="card" style="max-width: auto;">
-        <div class="card-img-overlay">
-          <h3 class="font-weight-bold text-secondary" style="text-align: center; margin-top: 300px; color:orange;">
-            <span style="font-size:70px;">ようこそ、ながのCAKEへ！</span></br>
-            </br>
-            このサイトは、ケーキ販売のECサイトになります。</br>
-            会員でない方も商品の閲覧はできますが</br>
-            購入には会員登録が必要になります。
-          </h3>
-        </div>
-      </div>
-      <div class="justify-content-center">
-      <%= image_tag 'cake.jpg', width: '100%', height: '100%' %>
-      </div>
-
-
-<div class="col-md-8 offset-md-2">
-  <div class="top"style="margin-top: 30px;">
-
-      <h2 class="border-bottom border-dark text-left">新着商品</h2>
-      <div class="d-flex flex-wrap">
-        <% @items.first(4).each do |item| %>
-         <div class ="col-md-3">
-           <ul class="list-inline">
-                 <%= link_to public_items_path(item.id) do %>
-                   <%= image_tag item.get_image,size: "180x180"%>
-                 <% end %><br />
-               <%= item.name %><br>
-           ￥<%= (item.add_tax_price).to_s(:delimited) %><br><%#上手く設定が出来ていない可能性有%>
-           </ui>
+      <div class="row">
+         <div class="col-12">
+         <div class="card-img-overlay">
+            <h1 class="font-weight-bold text-white" style="text-align: center; margin-top: 300px;">
+            <i class="fas fa-birthday-cake"></i> Nagano Cake
+            </h1>
          </div>
-        <% end %>
-        </div>
-       
-        <div class="text-right mr-5 mt-5">
-          <%= link_to '全ての商品を見る >', public_items_path ,class: "btn btn-outline-primary"%>
-        </div>
-
+         </div>
+         <%= image_tag 'orange2.JPG', width: '100%', height: '100%' %>
+      </div>
+      
+      
+<div class="col-md-10 offset-md-1">
+  <div class="top"style="margin-top: 30px;">
+    <h1 class=" text-left my-5">New Item List</h1>
+    <div class="d-flex flex-wrap justify-content-around">
+      <% @items.first(3).each do |item| %>
+       <div class ="col-md-3">
+          <ul class="list-inline">
+               <%= link_to public_items_path(item.id) do %>
+                 <%= image_tag item.get_image,size: "320x240"%>
+               <% end %><br />
+             <%= item.name %><br>
+           ￥<%= (item.add_tax_price).to_s(:delimited) %><br><%#上手く設定が出来ていない可能性有%>
+          </ui>
+       </div>
+      <% end %>
     </div>
+     
+    <div class="text-right mr-5 mt-5">
+      <%= link_to '　All Item List　>', public_items_path ,class: "btn btn-outline-dark"%>
+    </div>
+
   </div>
 </div>
+
+
+<div class="row">
+  <div class="col-md-8 offset-md-2"style="margin-top: 100px;">
+    <div class="d-flex justify-content-center">
+      <%= image_tag 'cat.jpg', width: '60%', height: '60%' %>
+    </div>
+    <div class="text-center">
+      <h2 class=my-5><i class="fas fa-birthday-cake"></i> Nagano Cake</h2>
+      
+      <h6 class=my-5>
+        <span style="font-size:23px;">ようこそ、Nagano Cakeへ！</span></br>
+        </br>
+        このサイトは、ケーキ販売のECサイトになります。</br>
+        会員でない方も商品の閲覧はできますが</br>
+        購入には会員登録が必要になります。
+      </h6>
+    </div>      
+  </div>
+</div>
+
+
+
+  
