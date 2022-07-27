@@ -5,12 +5,12 @@
 　　　<table class="table">
       <h2 class="p-3 mb-2 bg-dark text-white">商品詳細</h2>
     </div>
-    <div class="col-md-8", style="margin-top: 100px;">
+    <div class="col-md-8", style="margin-top: 50px;">
       <tr>
       <% if @item.image.attached? %>
-        <%= image_tag @item.image, size: "200x200" %>
+        <%= image_tag @item.image, size: "250x250" %>
       <% else %>
-        <%= image_tag 'no_image', size: "200x200" %>
+        <%= image_tag 'no_image', size: "250x250" %>
       <% end %>
       </tr>
      </table>
