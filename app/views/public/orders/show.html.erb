@@ -1,11 +1,14 @@
 <div class="container">
 <h3 class="border-bottom"><strong>注文履歴詳細</strong></h3>
 <div calss="row">
+
   <div class="d-flex justify-content-start">
     <div class="col-md-6 my-3">
       <h4><strong>注文情報</strong></h4>
     	
   	    <table class="table table-bordered"style="border-width: 2px;">
+
+    
           <tbody>
               <tr>
                 <th class="bg-secondary text-light">注文日</th>
@@ -36,7 +39,7 @@
           </tbody>
         </table>
     </div>
-
+    
     <div class="col-md-5 offset-md-1 billing my-3">
       <h4><strong>請求情報</strong></h4>
       
@@ -44,6 +47,7 @@
             <tr>
               <th class="bg-secondary text-light">配送料</th>
               <td >
+
                 ¥<%= @order.postage.to_s(:delimited, delimiter: ',') %>
               </td>
             </tr>
@@ -61,6 +65,7 @@
             </tr>
         </table>
     </div>
+
     </div>
     <div class="col-md-12 order-details">
       <h4><strong>注文内容</strong></h4>
@@ -68,6 +73,8 @@
         <table class="table table-bordered "style="border-width: 2px;">
           <thead class="bg-secondary text-light">
             <tr>
+
+   
                 <th>商品</th>
                 <th>単価(税込)</th>
                 <th>個数</th>
@@ -75,7 +82,7 @@
             </tr>
           </thead>
           <tbody>
-        	<%@order_details.each do |order_detail| %>
+        	<% @order_details.each do |order_detail| %>
             <tr>
                 <td><%= order_detail.item.name %></td>
                 <td>¥<%= (order_detail.item.price * 1.1).floor.to_s(:delimited, delimiter: ',') %></td>
