@@ -72,7 +72,6 @@
           <%= f.hidden_field :address, :value => @order.address %>
           <%= f.hidden_field :name, :value => @order.name %>
           <%= f.hidden_field :customer_id, :value => @order.customer_id %>
-          <%= f.hidden_field :postage, :value => @order.postage %>
           <%= f.hidden_field :billing_amount, :value => @total %>
           <%= f.submit '注文を確定する', class: "btn btn-outline-success w-100 btn-lg" %>
         <% end %>
