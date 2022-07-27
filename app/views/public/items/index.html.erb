@@ -11,8 +11,7 @@
           
         </div>
            <div class="col-md-10" style="margin-top: 50px;">
-             
-              <h4 class="border-bottom">商品一覧  　<span style="font-size:20px;">(全<span style="font-size:25px;"><%= @items.count %></span>件)</span></h4>
+              <h4 class="border-bottom">商品一覧  　<span style="font-size:20px;">(全<span style="font-size:25px;"><%= @items_all.count %></span>件)</span></h4>
               <div class="d-flex flex-wrap">
               <% @items.each do |item| %>
                <div class ="item_container px-5 py-5" style = "width: 25%">
@@ -24,7 +23,12 @@
                   </div>
               <% end %>
             </div>
-             
+            <div class="col-md-6 offset-md-3">
+              <div class="pagination" style="justify-content: center; margin-top: 30px;">
+                <!--ページネーション入れる-->
+                <p><%= paginate @items %></p>
+              </div>
+            </div> 
         </div>
     </div>
 </div>
