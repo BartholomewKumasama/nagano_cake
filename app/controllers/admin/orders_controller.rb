@@ -3,7 +3,6 @@ class Admin::OrdersController < ApplicationController
 
   def show
   	@order = Order.find(params[:id])
-  # 	@order_items = @order.order_items
   	@order_details = @order.order_details
   end
 
@@ -14,11 +13,24 @@ class Admin::OrdersController < ApplicationController
 
   def update
   	@order = Order.find(params[:id])
-  # 	@order_items = @order.order_items
   	@order.update(order_params)
-
-  		 redirect_to admin_order_path(@order)
+  	@order_details = @order.order_details
+    
+    case @order.status
+    when "入金待ち"
+      @order_details.update(making_status: 0)
+	  when "入金確認"
+      @order_details.update(making_status: 1)
+    when "製作中"
+      @order_details.update(making_status: 2)
+    when "発送準備中"
+      @order_details.update(making_status: 3)
+    end
+  	
+	  redirect_to  admin_order_path(@order)
   end
+
+  
 
   private
 
