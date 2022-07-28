@@ -62,7 +62,7 @@
         </tr>
         <tr>
           <td>請求額</td>
-          <td class="font-weight-bold my-2"style="font-size:30px;">￥<%= @total + 800 %></td>
+          <td class="font-weight-bold my-2"style="font-size:30px;">￥<%= (@total + 800).to_s(:delimited) %></td>
         </tr>
       </table>
 
